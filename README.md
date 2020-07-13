@@ -1,0 +1,1 @@
+# spotenu_projeto_fullstack
