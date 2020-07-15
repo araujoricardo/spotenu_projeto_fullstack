@@ -1,0 +1,10 @@
+CREATE TABLE s20_users (
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+    nickname VARCHAR(255) NOT NULL UNIQUE,
+    description VARCHAR(1000),
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(255) NOT NULL,
+    status VARCHAR(255) NOT NULL
+);
