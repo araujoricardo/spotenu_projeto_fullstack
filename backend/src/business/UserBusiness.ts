@@ -13,7 +13,8 @@ export class UserBusiness{
 
         const hashedPassword = await new HashManager().hash(data.password)
         const id = new IdGenerator().generate();
-        const status = new ActiveUser().active(data.role);
+        const validator = new ActiveUser;
+        const status = validator.validateRole(data.role);
 
         const user: SignUpInputDTO={
             id: id,
@@ -26,11 +27,15 @@ export class UserBusiness{
             status: status
         };
 
-        new UserDatabase().createUser(user);
+        if(user.role === Roles.admin){
+            validator.validadeNewAdmin(data.token as string)
+        };
+      
+        await new UserDatabase().createUser(user);
 
         const token = new Authenticator().generateAccessToken(
             {id: user.id, role: user.role}
-        )
+        );
 
         return token;
     };

@@ -12,7 +12,8 @@ export class UserController{
                 description: req.body.description,
                 email: req.body.email,
                 password: req.body.password,
-                role: req.body.role
+                role: req.body.role,
+                token: req.headers.auth as string
             };
 
             const token = await new UserBusiness().signUp(data);

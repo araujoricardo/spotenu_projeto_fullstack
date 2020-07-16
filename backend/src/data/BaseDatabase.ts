@@ -3,7 +3,7 @@ import Knex from "knex";
 
 export abstract class BaseDatabase{
 
-    protected static TABLE_USER: string = "";
+    protected static TABLE_USER: string = "s20_users";
     private static connection: Knex | null = null;
 
     protected getConnection(): knex{
