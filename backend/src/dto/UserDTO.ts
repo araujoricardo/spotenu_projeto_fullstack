@@ -21,3 +21,19 @@ export interface SignUpDataDTO{
     role: string,
     token: string | null
 };
+
+export interface LoginDataDTO{
+    emailOrNickname: string,
+    password: string
+};
+
+export interface StatusInputDTO{
+    id: string,
+    status: Status
+};
+
+export interface StatusDataDTO{
+    id: string,
+    status: string,
+    token: string
+};

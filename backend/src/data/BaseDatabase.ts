@@ -1,9 +1,11 @@
 import knex from "knex";
 import Knex from "knex";
 
-export abstract class BaseDatabase{
+export class BaseDatabase{
 
     protected static TABLE_USER: string = "s20_users";
+    protected static TABLE_GENRE: string = "s20_genre";
+    protected static TABLE_ALBUM: string = "s20_album";
     private static connection: Knex | null = null;
 
     protected getConnection(): knex{
@@ -22,7 +24,7 @@ export abstract class BaseDatabase{
         return BaseDatabase.connection;
     };
 
-    protected async destroyConnection():Promise<void>{
+    public async destroyConnection():Promise<void>{
         if(BaseDatabase.connection){
             await BaseDatabase.connection.destroy();
             BaseDatabase.connection = null;

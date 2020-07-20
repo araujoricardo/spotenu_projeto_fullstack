@@ -1,16 +1,12 @@
 import {Roles} from "../models/Roles";
 import {Status} from "../models/Status";
-import {failureMessage} from "../models/messages"
-import { Authenticator } from "./Authenticator";
+import { UserDatabase } from "../data/UserDatabase";
+import { failureMessage } from "../models/messages";
 
 export class ActiveUser{
 
-    public validateRole(role:string):Status{
+    public defineDefaultStatus(role:string):Status{
         
-        if( Roles[role as Roles] === undefined){
-            throw new Error(failureMessage.role);
-        };
-
         switch(Roles[role as Roles]){
             case `${Roles.band}`:{
                 return Status.waiting;
@@ -21,12 +17,11 @@ export class ActiveUser{
         };
     };
 
-    public validadeNewAdmin(token:string):void{
+    public async checkItsActive(id: string):Promise<void>{
+        const user = await new UserDatabase().getUserById(id);
 
-        const loggedUser = new Authenticator().getData(token);
-
-        if(loggedUser.role !== Roles.admin){
-            throw new Error(failureMessage.admin);
+        if(user.status !== Status.active){
+            throw new Error(failureMessage.active);
         };
     };
 };

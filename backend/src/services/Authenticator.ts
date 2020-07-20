@@ -1,5 +1,5 @@
 import * as jwt from "jsonwebtoken";
-import { Roles } from "../models/Roles";
+import { AuthenticatorData } from "../models/AuthenticatorData";
 
 export class Authenticator{
     private static ACCESS_EXPIRES_IN = "1d";
@@ -20,8 +20,3 @@ export class Authenticator{
     };
 };
 
-export interface AuthenticatorData{
-    id: string;
-    device?: string;
-    role: Roles
-};
