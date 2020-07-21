@@ -6,5 +6,6 @@ export interface AlbumInputDTO{
 
 export interface AlbumDataDTO{
     name: string,
+    genres: string[],
     token: string
 };

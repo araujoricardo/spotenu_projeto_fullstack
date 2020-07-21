@@ -6,6 +6,7 @@ export class BaseDatabase{
     protected static TABLE_USER: string = "s20_users";
     protected static TABLE_GENRE: string = "s20_genre";
     protected static TABLE_ALBUM: string = "s20_album";
+    protected static TABLE_GENRE_ALBUM: string = "s20_genre_album";
     private static connection: Knex | null = null;
 
     protected getConnection(): knex{

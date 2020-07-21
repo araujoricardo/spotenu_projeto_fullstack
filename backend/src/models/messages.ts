@@ -14,5 +14,7 @@ export enum failureMessage{
     email = "email invalido",
     status = "status invalido",
     createAlbum = "Apenas bandas podem criar albuns",
-    active = "Usuario não ativo"
+    active = "Usuario não ativo",
+    noGenre = "por favor informar pelo menos um genero",
+    genre = "genero não valido"
 };

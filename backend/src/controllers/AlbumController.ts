@@ -10,6 +10,7 @@ export class AlbumController{
         try{
             const data: AlbumDataDTO ={
                 name: req.body.name,
+                genres: req.body.genres,
                 token: req.headers.auth as string
             };
 

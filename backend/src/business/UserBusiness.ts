@@ -79,9 +79,11 @@ export class UserBusiness{
 
     public async updateStatus(data: StatusDataDTO){
 
-        new Validator().admin(data.token);
+        const validator = new Validator;
 
-        new Validator().status(data.status);
+        validator.admin(data.token);
+
+        validator.status(data.status);
 
         const newStatus: StatusInputDTO = {
             id: data.id,
