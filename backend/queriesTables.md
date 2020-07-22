@@ -27,3 +27,10 @@ CREATE TABLE s20_genre_album(
     FOREIGN KEY(genre_id) REFERENCES s20_genre(id),
     FOREIGN KEY(album_id) REFERENCES s20_album(id)
 );
+
+CREATE TABLE s20_songs(
+	id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    band_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY(band_id) REFERENCES s20_users(id)
+);

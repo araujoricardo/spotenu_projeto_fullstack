@@ -1,7 +1,8 @@
 export enum sucessMessage {
     updateStatus = "status alterado com sucesso",
     createGenre = "Genero adicionado com sucesso",
-    createAlbum = "Album criado com sucesso"
+    createAlbum = "Album criado com sucesso",
+    createSong = "Musica criada com sucesso"
 };
 
 export enum failureMessage{
@@ -13,7 +14,7 @@ export enum failureMessage{
     description = "apenas bandas podem ter descrição",
     email = "email invalido",
     status = "status invalido",
-    createAlbum = "Apenas bandas podem criar albuns",
+    band = "Apenas bandas podem criar fazer esta operação",
     active = "Usuario não ativo",
     noGenre = "por favor informar pelo menos um genero",
     genre = "genero não valido"

@@ -41,7 +41,7 @@ export class Validator{
     public band(user:AuthenticatorData):void{
         
         if(user.role !== Roles.band){
-            throw new Error(failureMessage.createAlbum);
+            throw new Error(failureMessage.band);
         };
     };
 
