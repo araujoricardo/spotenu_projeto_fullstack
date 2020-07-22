@@ -1,0 +1,36 @@
+CREATE TABLE s20_users (
+    id VARCHAR(255) PRIMARY KEY,
+	name VARCHAR(255) NOT NULL,
+    nickname VARCHAR(255) NOT NULL UNIQUE,
+    description VARCHAR(1000),
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(255) NOT NULL,
+    status VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE s20_genre(
+	id VARCHAR(255) PRIMARY KEY,
+    genre VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE s20_album(
+	id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    band_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY(band_id) REFERENCES s20_users(id)
+);
+
+CREATE TABLE s20_genre_album(
+	genre_id VARCHAR(255) NOT NULL,
+    album_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY(genre_id) REFERENCES s20_genre(id),
+    FOREIGN KEY(album_id) REFERENCES s20_album(id)
+);
+
+CREATE TABLE s20_songs(
+	id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    band_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY(band_id) REFERENCES s20_users(id)
+);
